@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\obj\Debug\net6.0\Section A.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\obj\Debug\net6.0\Section A.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\obj\Debug\net6.0\Section A.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\obj\Debug\net6.0\Section A.AssemblyInfo.cs
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\obj\Debug\net6.0\Section A.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\bin\Debug\net6.0\Section A.exe
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\bin\Debug\net6.0\Section A.deps.json
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\bin\Debug\net6.0\Section A.runtimeconfig.json
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\bin\Debug\net6.0\Section A.dll
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\bin\Debug\net6.0\Section A.pdb
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\obj\Debug\net6.0\Section A.dll
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\obj\Debug\net6.0\refint\Section A.dll
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\obj\Debug\net6.0\Section A.pdb
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\obj\Debug\net6.0\Section A.genruntimeconfig.cache
+C:\Users\User\Desktop\AVP Assignment 2\Student_Resource\Section A\obj\Debug\net6.0\ref\Section A.dll
