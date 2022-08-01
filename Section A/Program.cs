@@ -25,6 +25,9 @@ namespace SectionA
             public double Salary {get; set;}
 
             public double MonthlyPayout = 0.0;
+
+            public delegate void MyDelegate(string msg);
+
         
             // Constructor that takes one argument:
             // public Employee(string nric, string fullName, string salutation, DateTime startDate, string designation, string department, string mobileNo, string hireType, double monthlyPayout)
@@ -59,7 +62,8 @@ namespace SectionA
 
                         var partsDate = strArray[3].Split('/');
                         DateTime dParts3 = new DateTime(Convert.ToInt32(partsDate[2]), Convert.ToInt32(partsDate[1]), Convert.ToInt32(partsDate[0]));
-                        
+                        // var dParts4 = dParts3.ToShortDateString();
+                        // dParts4 = DateTime
 
                         Employee newEmployee = new Employee();
                         newEmployee.Nric = strArray[0];
@@ -101,6 +105,9 @@ namespace SectionA
              }
             static void Main(string[] args)
             {
+
+                MyDelegate del1 = generateInfoForCorpAdmin;
+
                 // ReadFromFile("HRMasterlist.txt");
                 List<Employee> listOfEmployees = GetEmployeeList();
 
@@ -110,7 +117,7 @@ namespace SectionA
                 //     Console.WriteLine(employ.Nric);
                 //     Console.WriteLine(employ.FullName);
                 //     Console.WriteLine(employ.Salutation);
-                //     Console.WriteLine(employ.StartDate);
+                //     Console.WriteLine(employ.StartDate.ToString("dd/MM/yyyy"));
                 //     Console.WriteLine(employ.Designation);
                 //     Console.WriteLine(employ.Department);
                 //     Console.WriteLine(employ.MobileNo);
@@ -121,6 +128,8 @@ namespace SectionA
                 // Console.WriteLine(count);
 
                 generateInfoForCorpAdmin(listOfEmployees);
+                generateInfoForProcurement(listOfEmployees);
+                generateInfoForITDepartment(listOfEmployees);
             }
 
             static void generateInfoForCorpAdmin(List<Employee> listOfEmployees)
@@ -148,20 +157,80 @@ namespace SectionA
                     Console.WriteLine(Ex.ToString());    
                 }
 
-                // string myFile = "HRMasterlist.txt";
-                // var theList = ReadFromFile(myFile);
-                // // using (StreamWriter sw = File.CreateText(myFile))
-
-                // foreach(var c in theList) //shld be one function generate strng; write to file is another function
-                // {
-                //     Console.WriteLine($"{c.FullName}, {c.Designation}, {c.Department}"); // to variable then u reutrn whole variable
-                // }
-
-                // Console.ReadLine();
-                // // myFile.close();
+               
             }
+
+            static void generateInfoForITDepartment(List<Employee> listOfEmployees)
+            {   
+                string fileName = @"ITDepartment.txt";
+
+                try
+                {
+                    if (File.Exists(fileName))
+                    {
+                        File.Delete(fileName);
+                    }
+
+                    using (StreamWriter sw = File.CreateText(fileName))
+                    {
+                        foreach(Employee employ in listOfEmployees)
+                        {   
+                            sw.WriteLine(employ.Nric + "," + employ.FullName + "," + employ.StartDate.ToString("dd/MM/yyyy") + "," + employ.Department + "," + employ.MobileNo);
+                        }
+                    }
+                }
+
+                catch (Exception Ex)    
+                {    
+                    Console.WriteLine(Ex.ToString());    
+                }
+
+               
+            }
+             static void generateInfoForProcurement(List<Employee> listOfEmployees)
+            {   
+                string fileName = @"Procurement.txt";
+
+                try
+                {
+                    if (File.Exists(fileName))
+                    {
+                        File.Delete(fileName);
+                    }
+
+                    using (StreamWriter sw = File.CreateText(fileName))
+                    {
+                        foreach(Employee employ in listOfEmployees)
+                        {   
+                            sw.WriteLine(employ.Salutation + "," + employ.FullName + "," + employ.MobileNo + "," + employ.Designation + "," + employ.Department);
+                        }
+                    }
+                }
+
+                catch (Exception Ex)    
+                {    
+                    Console.WriteLine(Ex.ToString());    
+                }
+
+               
+            }
+
+            
         }
 }
+
+
+// string myFile = "HRMasterlist.txt";
+// var theList = ReadFromFile(myFile);
+// // using (StreamWriter sw = File.CreateText(myFile))
+
+// foreach(var c in theList) //shld be one function generate strng; write to file is another function
+// {
+//     Console.WriteLine($"{c.FullName}, {c.Designation}, {c.Department}"); // to variable then u reutrn whole variable
+// }
+
+// Console.ReadLine();
+// myFile.close();
 
 //             static void generateInfoForITDepartment()
 //             {
