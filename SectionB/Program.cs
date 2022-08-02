@@ -2,9 +2,21 @@
 
 namespace SectionB
 {
-    using SectionA;
+       public class SectionB
+        {
+            public void MyMethod()
+            {
+              string details = SectionA;    
+            }
+              
+            
+        }
     class Program
     {
+        //public class SectionB()
+        //{
+        //    string details = SectionA.Program.HRMasterlist();
+        //}
         public enum HireTypes {
             FullTime = employ.Salary,
             PartTime = employ.Salary * 0.5,
