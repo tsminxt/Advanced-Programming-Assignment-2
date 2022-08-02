@@ -25,33 +25,18 @@ namespace SectionA
             public double Salary {get; set;}
 
             public double MonthlyPayout = 0.0;
-
-            public delegate void MyDelegate(string msg);
-
-        
-            // Constructor that takes one argument:
-            // public Employee(string nric, string fullName, string salutation, DateTime startDate, string designation, string department, string mobileNo, string hireType, double monthlyPayout)
-            // {
-            //     nric = Nric;
-            //     fullName = FullName;
-            //     salutation = Salutation;
-            //     startDate = StartDate;
-            //     designation = Designation;
-            //     department = Department;
-            //     mobileNo = MobileNo;
-            //     hireType = HireType;
-            //     monthlyPayout = MonthlyPayout;
-
-            // }
         }
 
         class Program
         {
-             public static List<Employee> GetEmployeeList()
+            //1 -> declare a delegate
+            public delegate void Delegate();
+
+            public static List<Employee> GetEmployeeList()
             {
                 List<Employee> listOfEmployees = new List<Employee>(); // in a list
 
-                using (StreamReader file = new StreamReader(@"HRMasterlist.txt"))
+                using (StreamReader file = new StreamReader(@"C:\Users\User\Desktop\AVP Assignment 2\ASN2_Student_Resource\HRMasterlist.txt"))
                 {
                      while (file.Peek() >= 0)
                      {
@@ -77,36 +62,23 @@ namespace SectionA
                         newEmployee.Salary = Convert.ToDouble(strArray[8]);
 
                         listOfEmployees.Add(newEmployee);
-
-                        //string line = sr.ReadLine();
-                        
-                        //  if (parts.Count() == 9)
-                        //  {
-                        //     var partsDate = parts[3].Split('/');
-                        //     DateTime dParts3 = new DateTime(Convert.ToInt32(partsDate[2]), Convert.ToInt32(partsDate[1]), Convert.ToInt32(partsDate[0]));
-                        //     Employee x = new Employee
-                        //     (
-                        //         parts[0],
-                        //         parts[1],
-                        //         parts[2],
-                        //         dParts3,
-                        //         parts[4],
-                        //         parts[5],
-                        //         parts[6],
-                        //         parts[7],
-                        //         Convert.ToDouble(parts[8])
-                        //     );
-                        //  }
                      }
                     file.Close();
                  }
 
                 return listOfEmployees;
-             }
+            }
             static void Main(string[] args)
             {
+                // create delegate instances
+                Delegate CorpAdmin = new Delegate(generateInfoForCorpAdmin());
+                Delegate Procurement = new Delegate(generateInfoForProcurement());
+                Delegate ITDepart = new Delegate(generateInfoForITDepartment());
 
-                MyDelegate del1 = generateInfoForCorpAdmin;
+                //Invoke a delegate
+                CorpAdmin(@"CorporateAdmin.txt");
+                Procurement(@"Procurement.txt");
+                ITDepart(@"ITDepartment.txt");
 
                 // ReadFromFile("HRMasterlist.txt");
                 List<Employee> listOfEmployees = GetEmployeeList();
@@ -131,7 +103,20 @@ namespace SectionA
                 generateInfoForProcurement(listOfEmployees);
                 generateInfoForITDepartment(listOfEmployees);
             }
+            
+            static void HRMasterlist()
+            {
+                var file = @"C:\Users\User\Desktop\AVP Assignment 2\ASN2_Student_Resource\HRMasterlist.txt";
 
+                using var sr = new StreamReader(file);
+
+                string line;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+            }
             static void generateInfoForCorpAdmin(List<Employee> listOfEmployees)
             {   
                 string fileName = @"CorporateAdmin.txt";
@@ -157,7 +142,6 @@ namespace SectionA
                     Console.WriteLine(Ex.ToString());    
                 }
 
-               
             }
 
             static void generateInfoForITDepartment(List<Employee> listOfEmployees)
@@ -187,7 +171,7 @@ namespace SectionA
 
                
             }
-             static void generateInfoForProcurement(List<Employee> listOfEmployees)
+            static void generateInfoForProcurement(List<Employee> listOfEmployees)
             {   
                 string fileName = @"Procurement.txt";
 
@@ -219,51 +203,38 @@ namespace SectionA
         }
 }
 
+//string line = sr.ReadLine();
+                        
+//  if (parts.Count() == 9)
+//  {
+//     var partsDate = parts[3].Split('/');
+//     DateTime dParts3 = new DateTime(Convert.ToInt32(partsDate[2]), Convert.ToInt32(partsDate[1]), Convert.ToInt32(partsDate[0]));
+//     Employee x = new Employee
+//     (
+//         parts[0],
+//         parts[1],
+//         parts[2],
+//         dParts3,
+//         parts[4],
+//         parts[5],
+//         parts[6],
+//         parts[7],
+//         Convert.ToDouble(parts[8])
+//     );
+//  }
 
-// string myFile = "HRMasterlist.txt";
-// var theList = ReadFromFile(myFile);
-// // using (StreamWriter sw = File.CreateText(myFile))
-
-// foreach(var c in theList) //shld be one function generate strng; write to file is another function
+        
+// Constructor that takes one argument:
+// public Employee(string nric, string fullName, string salutation, DateTime startDate, string designation, string department, string mobileNo, string hireType, double monthlyPayout)
 // {
-//     Console.WriteLine($"{c.FullName}, {c.Designation}, {c.Department}"); // to variable then u reutrn whole variable
-// }
+//     nric = Nric;
+//     fullName = FullName;
+//     salutation = Salutation;
+//     startDate = StartDate;
+//     designation = Designation;
+//     department = Department;
+//     mobileNo = MobileNo;
+//     hireType = HireType;
+//     monthlyPayout = MonthlyPayout;
 
-// Console.ReadLine();
-// myFile.close();
-
-//             static void generateInfoForITDepartment()
-//             {
-//                 string itdepart = @"HRMasterlist.txt";
-//                 var theList = ReadFromFile(itdepart);
-
-//                 foreach(var c in theList)
-//                 {
-//                     Console.WriteLine($"{c.Nric}, {c.FullName}, {c.StartDate}, {c.Department}, {c.MobileNo}");
-//                 }
-
-//                 Console.ReadLine();
-//             }
-//             static void generateInfoForProcurement()
-//             {
-//                 string procurement = @"HRMasterlist.txt";
-//                 var theList = ReadFromFile(procurement);
-
-//                 foreach(var c in theList)
-//                 {
-//                     Console.WriteLine($"{c.Salutation}.{c.FullName} {c.MobileNo}, {c.Designation}, {c.Department}");
-//                 }
-
-//                 Console.ReadLine();
-//             }
-
-//         }
-// }
-
-// var file = "HRMasterlist.txt";
-
-// string[] readText = File.ReadAllLines(file);
-// foreach (string s in readText)
-// {
-//     Console.WriteLine(s);
 // }
