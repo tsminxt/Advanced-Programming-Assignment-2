@@ -1,54 +1,84 @@
 ﻿using System;
+using SectionA;
 
 namespace SectionB
 {
-       public class SectionB
-        {
-            public void MyMethod()
-            {
-              string details = SectionA;    
-            }
-              
+    // public class SectionB
+    // {
+    //     public void MyMethod()
+    //     {
+    //         string details = SectionA.Program.readHRMasterList();   
+    //     }
             
-        }
+        
+    // }
+
     class Program
     {
-        //public class SectionB()
-        //{
-        //    string details = SectionA.Program.HRMasterlist();
-        //}
-        public enum HireTypes {
-            FullTime = employ.Salary,
-            PartTime = employ.Salary * 0.5,
-            Hourly = 0.25 * employ.Salary
+        public enum HireTypes
+        {
+            FullTime,
+            PartTime,
+            Hourly
         }
 
         public static void Main(string[] args)
         {
+            List<SectionA.Employee> listOfEmployees = new List<SectionA.Employee>();
+            listOfEmployees = SectionA.Program.readHRMasterList();
+
+            listOfEmployees = processPayroll(listOfEmployees);
+
+            updateMonthlyPayoutToMasterlist(listOfEmployees);
             // using system.enum -> "Enum.GetValues" method to print out each of the value 
-            foreach (int i in System.Enum.GetValues(typeof(HireTypes)))
-            {
-                Console.WriteLine(i);
-                //print out value of i.
-            }
+            // foreach (int i in System.Enum.GetValues(typeof(HireTypes)))
+            // {
+            //     Console.WriteLine(i);
+            //     //print out value of i.
+            // }
         }
 
-        static void processPayroll()
+        static List<SectionA.Employee> processPayroll(List<SectionA.Employee> listOfEmployees)
         {
-            using (StreamReader sr = new StreamReader(@"HRMasterlist.txt"))
-            {
-                string line;
+            double totalSalary = 0.0;
+            int totalEmploy = 0;
 
-                while ((line = sr.ReadLine()) != null)
+            foreach(SectionA.Employee employ in listOfEmployees)
+            {
+                Console.WriteLine(employ.FullName + " (" + employ.Nric + ")");
+                Console.WriteLine(employ.Designation);
+
+                if (employ.HireType == HireTypes.PartTime.ToString())
                 {
-                    Console.WriteLine(line);
+                    employ.Salary = employ.Salary * 0.5;
+                    Console.WriteLine(HireTypes.PartTime.ToString() + " Payout: $" + employ.Salary);
                 }
+                else if (employ.HireType == HireTypes.Hourly.ToString())
+                {
+                    employ.Salary = employ.Salary * 0.25;
+                    Console.WriteLine(HireTypes.Hourly.ToString() + " Payout: $" + employ.Salary);
+                }
+                else
+                {
+                    Console.WriteLine(HireTypes.FullTime.ToString() + " Payout: $" + employ.Salary);
+                }
+                
+                Console.WriteLine("----------------------------------------");
+
+                totalSalary = totalSalary + employ.Salary;
+                totalEmploy++;
             }
+
+            Console.WriteLine("Total Payroll Amount: $" + totalSalary + " to be paid to " + totalEmploy + " employees.");
+            Console.WriteLine(" ");
+
+            return listOfEmployees;
         }
 
-        static void updateMonthlyPayoutToMasterlist(List<Employee> listOfEmployees)
+        static void updateMonthlyPayoutToMasterlist(List<SectionA.Employee> listOfEmployees)
         {   
             string fileName = @"HRMasterlistB.txt";
+            double totalSalary = processPayroll.totalSalary;
 
             try
             
@@ -62,7 +92,7 @@ namespace SectionB
                     {
                         foreach(Employee employ in listOfEmployees)
                         {   
-                            sw.WriteLine(employ.Nric + "|" + employ.FullName + "|" + employ.Salutation + "|" + employ.StartDate.ToString("dd/MM/yyyy") + "|" + employ.Designation + "|" + employ.Department + "|" + employ.mobileNo + "|" + employ.HireType + "|" + employ.Salary + "|" + employ.monthlyPayout);
+                            sw.WriteLine(employ.Nric + "|" + employ.FullName + "|" + employ.Salutation + "|" + employ.StartDate.ToString("dd/MM/yyyy") + "|" + employ.Designation + "|" + employ.Department + "|" + employ.MobileNo + "|" + employ.HireType + "|" + processPayroll.totalSalary + "|" + employ.Salary);
                         }
                     }
             }

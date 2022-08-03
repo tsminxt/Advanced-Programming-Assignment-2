@@ -29,7 +29,7 @@ namespace SectionA
     //1 -> declare a delegate
     public delegate void Delegate(List<Employee> listOfEmployees);
  
-    class Program
+    public class Program
     {
         public static List<Employee> readHRMasterList()
         {

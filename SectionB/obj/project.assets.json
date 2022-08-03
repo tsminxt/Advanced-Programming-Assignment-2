@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Section A/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Section A.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Section A.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Section A/1.0.0": {
+      "type": "project",
+      "path": "../SectionA/Section A.csproj",
+      "msbuildProject": "../SectionA/Section A.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Section A >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\User\\.nuget\\packages\\": {},
@@ -14,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\Student_Resource\\Section B\\Section B.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\SectionB\\Section B.csproj",
       "projectName": "Section B",
-      "projectPath": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\Student_Resource\\Section B\\Section B.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\SectionB\\Section B.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\Student_Resource\\Section B\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\SectionB\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -37,7 +56,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\SectionA\\Section A.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\SectionA\\Section A.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

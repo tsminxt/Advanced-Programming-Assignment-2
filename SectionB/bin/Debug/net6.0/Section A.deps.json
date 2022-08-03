@@ -6,11 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Section B/1.0.0": {
-        "runtime": {
-          "Section B.dll": {}
-        }
-      },
       "Section A/1.0.0": {
         "runtime": {
           "Section A.dll": {}
@@ -19,11 +14,6 @@
     }
   },
   "libraries": {
-    "Section B/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Section A/1.0.0": {
       "type": "project",
       "serviceable": false,

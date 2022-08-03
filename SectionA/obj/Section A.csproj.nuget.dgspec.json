@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\Section A\\Section A.csproj": {}
+    "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\SectionA\\Section A.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\Section A\\Section A.csproj": {
+    "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\SectionA\\Section A.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\Section A\\Section A.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\SectionA\\Section A.csproj",
         "projectName": "Section A",
-        "projectPath": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\Section A\\Section A.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\SectionA\\Section A.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\Section A\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\AVP Assignment 2\\ASN2_Student_Resource\\SectionA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
