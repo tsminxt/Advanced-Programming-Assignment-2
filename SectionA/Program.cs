@@ -23,7 +23,7 @@ namespace SectionA
 
         public double Salary {get; set;}
 
-        public double MonthlyPayout = 0.0;
+        public double MonthlyPayout {get; set;} = 0.0;
     }
 
     //1 -> declare a delegate
