@@ -37,7 +37,7 @@ namespace SectionA
 
             using (StreamReader file = new StreamReader(@"C:\Users\User\Desktop\AVP Assignment 2\ASN2_Student_Resource\HRMasterlist.txt"))
             {
-                    while (file.Peek() >= 0)
+                    while (!file.EndOfStream)
                     {
                     string str;
                     string[] strArray;
