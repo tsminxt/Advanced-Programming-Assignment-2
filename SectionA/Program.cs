@@ -34,7 +34,7 @@ namespace SectionA
         public static List<Employee> readHRMasterList()
         {
             List<Employee> listOfEmployees = new List<Employee>();
-
+        
             using (StreamReader file = new StreamReader(@"C:\Users\User\Desktop\AVP Assignment 2\ASN2_Student_Resource\HRMasterlist.txt"))
             {
                     while (!file.EndOfStream)
@@ -168,18 +168,3 @@ namespace SectionA
         }
     }
 }
-        
-// Constructor that takes one argument:
-// public Employee(string nric, string fullName, string salutation, DateTime startDate, string designation, string department, string mobileNo, string hireType, double monthlyPayout)
-// {
-//     nric = Nric;
-//     fullName = FullName;
-//     salutation = Salutation;
-//     startDate = StartDate;
-//     designation = Designation;
-//     department = Department;
-//     mobileNo = MobileNo;
-//     hireType = HireType;
-//     monthlyPayout = MonthlyPayout;
-
-// }
